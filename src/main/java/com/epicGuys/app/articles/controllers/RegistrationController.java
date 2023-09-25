@@ -31,4 +31,9 @@ public class RegistrationController {
         userRepository.save(user);
         return "registration successful";
     }
+
+    @GetMapping("/hello")
+    public String hello(){
+        return "hello";
+    }
 }

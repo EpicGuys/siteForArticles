@@ -40,25 +40,20 @@ public class SecurityConfiguration{
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http.authorizeRequests()
-                .anyRequest().authenticated()
-                .and()
-                .formLogin().permitAll()
-                .and()
-                .logout().permitAll()
-                .and().build();
-//        return http.addFilterBefore(new CustomAuthorizationFilter(), BasicAuthenticationFilter.class) // добавляем наш фильтр перед BasicAuthenticationFilter
-//                .authorizeRequests()
-//                .antMatchers("/public/**").permitAll() // доступ к публичным ресурсам
-//                .antMatchers("/admin/**").hasRole("ADMIN") // доступ к ресурсам администратора только для пользователей с ролью ADMIN
-//                .anyRequest().authenticated() // все остальные запросы требуют аутентификации
+        http
+                .authorizeHttpRequests((requests) -> requests
+                        .requestMatchers("/registration", "/login").permitAll()
+                        .requestMatchers("/**").authenticated())
+                .formLogin((form) -> form.permitAll());
+        return http.build();
+
+
+        //        return http.authorizeRequests()
+//                .anyRequest().authenticated()
 //                .and()
-//                .formLogin() // настройка формы логина
-//                .loginPage("/login")
-//                .permitAll()
+//                .formLogin().permitAll()
 //                .and()
-//                .logout() // настройка выхода из системы
-//                .logoutUrl("/logout")
-//                .permitAll();
+//                .logout().permitAll()
+//                .and().build();
     }
 }
