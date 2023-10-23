@@ -20,6 +20,7 @@ The necessary project documentation is located in the documents folder.
 
 ## Diagrams
 
-Ypu can find on documents/UML diagrams/diagrams.pdf
-   
+You can find on #documents/UML diagrams/diagrams.pdf
+
+  
 
