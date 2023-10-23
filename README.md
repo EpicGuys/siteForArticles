@@ -20,7 +20,7 @@ The necessary project documentation is located in the documents folder.
 
 ## Diagrams
 
-You can find on #documents/UML diagrams/diagrams.pdf
+<a href="documents/UML diagrams/diagrams.pdf">diagrams</a>
 
   
 
