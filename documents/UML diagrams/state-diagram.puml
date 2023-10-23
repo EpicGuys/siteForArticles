@@ -1,0 +1,43 @@
+@startuml
+
+title State Diagram
+
+[*] -[#Blue]-> Online : guest visits the site
+
+Online -[#Blue]-> Login : guest tries to login
+Online -[#Blue]-> View : guest views article
+Online -[#Blue]-> Register : guest tries to login
+
+Register -[#Red]-> Online : guest is not registered
+Register -[#Green]-> Admin : guest is registered as admin
+Register -[#Green]-> User : guest is registered as user
+
+Login -[#Red]-> Online : guest is not logged in
+Login -[#Green]-> Admin : guest is logged in as admin
+Login -[#Green]-> User : guest is logged in as user
+
+Admin -[#Green]-> View : view article
+Admin -[#Green]-> Create : create article
+Admin -[#Green]-> Delete : delete article
+Admin -[#Green]-> Update : update article
+Admin -[#Green]-> Logout : logout from system
+
+User -[#Green]-> View : view article
+User -[#Green]-> Create : create article
+User -[#Green]-> Delete : delete article
+User -[#Green]-> Update : update article
+User -[#Green]-> Logout : logout from system
+
+View -[#Green]-> Leave : leave comment
+View -[#Green]-> Extract : extract comment
+
+Logout -[#Red]-> Online : online as guest
+
+View -[#Orange]-> [*]
+Create -[#Orange]-> [*]
+Update -[#Orange]-> [*]
+Delete -[#Orange]-> [*]
+Leave -[#Orange]-> [*]
+Extract -[#Orange]-> [*]
+
+@enduml
