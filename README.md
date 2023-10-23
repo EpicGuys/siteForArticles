@@ -17,5 +17,9 @@ The project is being developed on Windows 10.
 * MySQL
 ## Documents
 The necessary project documentation is located in the documents folder.
+
+## Diagrams
+
+Ypu can find on documents/UML diagrams/diagrams.pdf
    
 
