@@ -1,116 +1,39 @@
 @charset "UTF-8";
 
-@media (max-width : 1240px) {
-	
-	.flex-container-menu {
-		background-color: rgb(255, 255, 128);
-	}
-		
-	
+:root {
+	--color1: #b434eb;
+	--color2: #24e3ed;
 }
 
-* {
-	box-sizing: border-box;
-	margin: 0;
+.mh-bg-g {
+	background: var(--color2);
+	background: -moz-linear-gradient(90deg, var(--color2) 0%, var(--color1) 100%);
+	background: -webkit-linear-gradient(90deg, var(--color2) 0%, var(--color1) 100%);
+	background: linear-gradient(90deg, var(--color2) 0%, var(--color1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=var(--color2), endColorstr=var(--color2), GradientType=1);
 }
 
-body {
-	background-color: #e4e1ed;
+.mh-ftcolor-white {
+	color: var(--bs-white);
 }
 
-.flex-container-menu {
-	background-color: #131217;
-	display: flex;			       /*это контейнер*/
-	flex-flow: row wrap;
-	justify-content: space-around; /*выравнивание по главной оси*/
-	align-items: center;           /*выравание по побочной оси*/
-	height: 60px;
-	width: 100%;
-}	
-
-.flex-container{
-	display: flex;			 /*это контейнер*/
-	flex-flow: row wrap;
-	justify-content: center; /*выравнивание по главной оси*/
-	align-items: center;     /*выравание по побочной оси*/
-	list-style-type: none;
-	text-decoration: none;
-	font-family: sans-serif;
-	height: 60px;
-}
-
-.flex-container li {
-	padding: 10px 40px;
-	height: 45px;
-	box-sizing: border-box;
-	transition: border 0.25s linear;
-}
-
-#li-set {
-	padding: 10px 40px;
-	height: 45px;
-	border-bottom: 5px solid #fcfcfc;
-}
-
-.flex-container li:hover {
-	border-bottom: 5px solid #fcfcfc;
-}
-
-.flex-container li a {
-	height: 50px;
-	width: 50px;
-	text-decoration: none;
-	color: white;
-}
-
-.flex-container li a:hover{
-	color: #e3dcf7;
-	text-shadow: 1px 3px 5px #3a74c9;
-}
-
-.intro {
-	padding-top: 20px;
-	font-family: 'Oswald', sans-serif;
-	margin-left: 5vw;
-	margin-right: 5vw;
-}
-
-.class-h {
-	padding: 10px 40px; 
-	font-size: 40px;
-}
-
-.class-p {
-	padding: 10px 40px;
-	font-size: 20px; 
-}
-
-.flex-ul {
-	display: flex;			 /*это контейнер*/
-	flex-flow: row nowrap;
-	justify-content: left; /*выравнивание по главной оси*/
-	align-items: center;     /*выравание по побочной оси*/
-	list-style-type: none;
-	padding: 10px 40px;
-	width: 550px;
-	height: 250px;
-}
-
-.class-li {
-	width: 300px;
-	height: 250px;
-}
-
-.img {
-	width: 250px;
-	height: 250px;
-}
-
-.span {
-	padding: 5px 10px;
+.mh-btn {
 	display: block;
-	width: 300px;
-	height: 250px;
+	border-radius: 5px;
+	background-color: inherit;
+	border: solid 2px var(--bs-white);
+	transition: all .2s linear;
 }
 
+.mh-btn:hover {
+	background-color: #108be8;
+}
 
+.mh-hover {
+	background-color: var(--bs-white);
+	transition: all .1s linear;
+}
+
+.mh-hover:hover {
+	background-color: #0ed2f0;
+}

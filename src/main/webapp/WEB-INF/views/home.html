@@ -3,42 +3,68 @@
 
 <head>
 	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/main.css">
-    <title>Epic Articles</title>
-    <link rel="shortcut icon" href="images/icon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<title>Epic Articles</title>
+	<link rel="shortcut icon" href="images/icon.png">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600;700&display=swap" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/1b21b58b73.js" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
-	<!--MENU-->
-	<div class="flex-container-menu">
-		<ul class="flex-container">
-			<li id="li-set"><a class="block-a" href="#">WELCOME</a></li>
-			<li><a href="#">TRAVEL</a></li>
-			<li><a href="#">SPORT</a></li>
-			<li><a href="#">SCIENCE</a></li>
-			<li><a href="#">IT</a></li>
-		</ul>
-		
-		<ul class="flex-container">
-			<li><a href="#">ADD ARTICLE</a></li>
-			<li><a href="#">VIEW YOUR ARTICLES</a></li>
-		</ul>
-		
-	</div>
-	
-	<!--INTRO-->
-	<div class="intro">
-		<h1 class="class-h">What is the project about?</h1>
-		<p class="class-p">The project is educational. You have the opportunity to write 
-			your own article on the proposed topics. You can also view other people's 
-			articles and leave comments.</p>
-		<h2 class="class-h">Technology stack</h2>
-		<p class="class-p">The following technologies were used for the project: 
-			HTML, CSS, JQuery, Java, Spring Web, Spring Boot, Spring JPA, Spring Security.</p>
-	</div>
-	
+	<!--Header-->
+	<nav class="navbar navbar-expand-lg mh-bg-g">
+		<div class="container-fluid">
+			<a class="navbar-brand mh-ftcolor-white" href="#">EpicGuys</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+				data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="On/off nav">
+				<i class="fa-regular fa-clipboard"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+						<a class="nav-link active mh-ftcolor-white" aria-current="page" href="#">Welcome</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle mh-ftcolor-white" href="#" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							View
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item mh-hover" href="#">Travel</a></li>
+							<li><a class="dropdown-item mh-hover" href="#">Sport</a></li>
+							<li><a class="dropdown-item mh-hover" href="#">IT</a></li>
+							<li><a class="dropdown-item mh-hover" href="#">Science</a></li>
+							<li>
+								<hr class="dropdown-divider">
+							</li>
+							<li><a class="dropdown-item mh-hover" href="#">All</a></li>
+						</ul>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle mh-ftcolor-white" href="#" role="button" data-bs-toggle="dropdown"
+							aria-expanded="false">
+							Your content
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item mh-hover" href="#">Profile</a></li>
+							<li><a class="dropdown-item mh-hover" href="#">Write article</a></li>
+							<li><a class="dropdown-item mh-hover" href="#">View yours</a></li>
+						</ul>
+					</li>
+				</ul>
+				<form class="d-flex" role="search">
+					<input class="form-control me-2" type="search" placeholder="Search..." aria-label="Search">
+					<button class="mh-btn mh-ftcolor-white" type="submit">Search</i></button>
+				</form>
+			</div>
+		</div>
+	</nav>
+
+
+	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/home.js"></script>
 </body>
 
