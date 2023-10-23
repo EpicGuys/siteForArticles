@@ -16,10 +16,8 @@ The project is being developed on Windows 10.
   * Spring Jpa
 * MySQL
 ## Documents
-The necessary project documentation is located in the documents folder.
-
+<a href="https://github.com/EpicGuys/siteForArticles/tree/master/documents">documents</a>
 ## Diagrams
-
 <a href="documents/UML diagrams/diagrams.pdf">diagrams</a>
 
   
