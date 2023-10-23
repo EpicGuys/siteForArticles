@@ -16,7 +16,7 @@ The project is being developed on Windows 10.
   * Spring Jpa
 * MySQL
 ## Documents
-<a href="https://github.com/EpicGuys/siteForArticles/tree/master/documents">documents</a>
+The link <a href="https://github.com/EpicGuys/siteForArticles/tree/master/documents">documents</a> provides mockups and requirements
 ## Diagrams
 The link <a href="documents/UML diagrams/diagrams.pdf">diagrams</a> provides the following diagrams:
 * Use Case diagram
