@@ -1,0 +1,37 @@
+@startuml
+
+title Components Diagram
+
+package "Front-end" {
+    [interface]
+}
+
+[monitor] - interface
+
+Interface create_update_delete
+Interface login
+
+interface -down- create_update_delete
+interface -down- login
+
+package "Back-end" {
+    [microservice of database] as database 
+    [microservice of users] as user
+    [microservice of articles] as article 
+
+    Interface request
+
+    user -down-( request
+    article -down-( request
+
+    request -down- database
+}
+
+create_update_delete -down- article
+login -down- user
+
+database "MySQL" as db
+
+database -down- db
+
+@enduml
