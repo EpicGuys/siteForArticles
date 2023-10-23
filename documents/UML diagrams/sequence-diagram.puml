@@ -1,0 +1,28 @@
+@startuml
+
+title Sequence Diagram
+
+actor User
+boundary Page
+database Database
+
+User --> Page++ : button view/update/delete article
+
+create control BackendService
+
+Page --> BackendService++ : request to view/update/delete article
+BackendService --> BackendService++ : find user in the system
+
+create control ServiceDataBase
+
+BackendService --> ServiceDataBase++ : request to database
+
+
+
+ServiceDataBase --> Database : request to database
+
+destroy ServiceDataBase
+destroy BackendService
+
+
+@enduml
