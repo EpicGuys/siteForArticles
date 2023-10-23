@@ -26,8 +26,7 @@ The link provides the following diagrams:
 * State diagram
 * Class diagram
 * Component and Deployment diagrams
-
-<a href="documents/UML diagrams/diagrams.pdf">diagrams</a>
+* <a href="documents/UML diagrams/diagrams.pdf">diagrams</a>
 
   
 
