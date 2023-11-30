@@ -16,16 +16,6 @@ The project is being developed on Windows 10.
   * Spring Jpa
 * MySQL
 ## Documents
-The link <a href="https://github.com/EpicGuys/siteForArticles/tree/master/documents">documents</a> provides mockups and requirements
-## Diagrams
-The link <a href="documents/UML diagrams/diagrams.pdf">diagrams</a> provides the following diagrams:
-* Use Case diagram
-* Flow of events
-* Activity diagram
-* Sequence diagram
-* State diagram
-* Class diagram
-* Component and Deployment diagrams
-
-  
+The necessary project documentation is located in the documents folder.
+   
 
