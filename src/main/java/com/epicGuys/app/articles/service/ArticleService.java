@@ -10,6 +10,7 @@ import com.epicGuys.app.articles.entity.Article;
 import com.epicGuys.app.articles.entity.User;
 import com.epicGuys.app.articles.jpa.ArticleRepository;
 
+
 @Service
 public class ArticleService {
 	@Autowired
@@ -20,6 +21,10 @@ public class ArticleService {
 		article.setUser(user);
 		Example<Article> articleExample = Example.of(article);
 		return articleRepository.findAll(articleExample);
+	}
+	
+	public List<Article> getAllArticles() {
+		return articleRepository.findAll();
 	}
 	
 	public Article saveArticle(Article article) {
