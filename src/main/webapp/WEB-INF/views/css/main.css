@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+:root {
+	--color1: #b434eb;
+	--color2: #24e3ed;
+}
+
+.mh-bg-g {
+	background: var(--color2);
+	background: -moz-linear-gradient(90deg, var(--color2) 0%, var(--color1) 100%);
+	background: -webkit-linear-gradient(90deg, var(--color2) 0%, var(--color1) 100%);
+	background: linear-gradient(90deg, var(--color2) 0%, var(--color1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=var(--color2), endColorstr=var(--color2), GradientType=1);
+}
+
+.mh-ftcolor-white {
+	color: var(--bs-white);
+}
+
+.mh-btn {
+	display: block;
+	border-radius: 5px;
+	background-color: inherit;
+	border: solid 2px var(--bs-white);
+	transition: all .2s linear;
+}
+
+.mh-btn:hover {
+	background-color: #108be8;
+}
+
+.mh-hover {
+	background-color: var(--bs-white);
+	transition: all .1s linear;
+}
+
+.mh-hover:hover {
+	background-color: #0ed2f0;
+}
