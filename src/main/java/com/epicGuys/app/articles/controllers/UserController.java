@@ -1,9 +1,13 @@
 package com.epicGuys.app.articles.controllers;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import com.epicGuys.app.articles.dto.Response;
+import com.epicGuys.app.articles.entity.Role;
 import com.epicGuys.app.articles.entity.User;
 import com.epicGuys.app.articles.exception.NotFoundException;
 import com.epicGuys.app.articles.exception.ValidationException;
@@ -24,6 +29,8 @@ import com.epicGuys.app.articles.validator.Validator;
 public class UserController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private Validator validator;
 	
@@ -56,7 +63,13 @@ public class UserController {
 		if(!validator.isUserValid(user)) {
 			throw new ValidationException("Fields are not valid");
 		}
-		return new Response<User>(HttpStatus.CREATED, userService.saveUser(user));
+		System.out.println("loh");
+		User newUser = new User();
+		newUser.setNickname(user.getNickname());
+		newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+		newUser.setEnabled(true);
+		newUser.setRoles(Set.of(Role.ROLE_USER));
+		return new Response<User>(HttpStatus.CREATED, userService.saveUser(newUser));
 	}
 	
 	@DeleteMapping("/{id}")
