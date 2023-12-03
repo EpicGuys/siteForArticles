@@ -1,5 +1,9 @@
 package com.epicGuys.app.articles.controllers;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -42,7 +46,10 @@ public class ArticleController {
 		if(user.isEmpty()) {
 			throw new NotFoundException("User does not exist");
 		}
+		Date date = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
 		article.setUser(user.get());
+		article.setDate(dateFormat.format(date));
 		articleService.saveArticle(article);
 		return new Response<Article>(HttpStatus.CREATED, article);
 	}
@@ -68,6 +75,7 @@ public class ArticleController {
 			throw new NotFoundException("User does not exist");
 		}
 		List<Article> articles = articleService.getAllArticles(user.get());
+		Collections.reverse(articles);
 		return new Response<List<Article>>(HttpStatus.OK, articles);
 	}
 

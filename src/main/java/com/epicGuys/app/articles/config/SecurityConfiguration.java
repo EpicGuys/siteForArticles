@@ -40,6 +40,7 @@ public class SecurityConfiguration {
 		http.authorizeHttpRequests((object) ->{
 			object.anyRequest().permitAll();
 		});
+		http.formLogin();
 		return http.build();
 	}	
 }

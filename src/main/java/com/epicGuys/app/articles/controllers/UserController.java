@@ -63,7 +63,6 @@ public class UserController {
 		if(!validator.isUserValid(user)) {
 			throw new ValidationException("Fields are not valid");
 		}
-		System.out.println("loh");
 		User newUser = new User();
 		newUser.setNickname(user.getNickname());
 		newUser.setPassword(passwordEncoder.encode(user.getPassword()));
