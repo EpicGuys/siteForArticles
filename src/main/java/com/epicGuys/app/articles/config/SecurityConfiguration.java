@@ -49,13 +49,7 @@ public class SecurityConfiguration {
 				.defaultSuccessUrl("/")
 				.failureUrl("/login?error");
 		});
-<<<<<<< HEAD
-		http.formLogin(form -> form
-			.loginPage("/login")
-			.permitAll()
-		);
-=======
->>>>>>> 1e6f7423c001ef1597f79e2c967d47dfd04e97fa
+
 		return http.build();
 	}	
 }
