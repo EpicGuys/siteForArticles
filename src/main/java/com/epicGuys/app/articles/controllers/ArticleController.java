@@ -35,13 +35,13 @@ public class ArticleController {
 	@Autowired
 	private Validator validator;
 	
-	@PostMapping("/writer/add/{userId}")
+	@PostMapping("/writer/add")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Response<Article> addArticle(@PathVariable("userId") String userId, @RequestBody Article article) throws NotFoundException, ValidationException{
-		if(!validator.isIdValid(userId) || !validator.isArticleValid(article)) {
+	public Response<Article> addArticle(@RequestBody Article article) throws NotFoundException, ValidationException{
+		if(!validator.isArticleValid(article)) {
 			throw new ValidationException("Validation error");
 		}
-		Optional<User> user = userService.getUser(Long.valueOf(userId));
+		Optional<User> user = userService.getUser(Long.valueOf(userService.getUserIdByNickname(userService.getNicknameOfCurrentUser())));
 		if(user.isEmpty()) {
 			throw new NotFoundException("User does not exist");
 		}
@@ -60,6 +60,7 @@ public class ArticleController {
 		if(articles.isEmpty()) {
 			throw new NotFoundException("Articles do not exist");
 		}
+		Collections.reverse(articles);
 		return new Response<List<Article>>(HttpStatus.OK, articles);
 	}
 	
@@ -90,13 +91,10 @@ public class ArticleController {
 	}
 	
 	
-	@GetMapping("/all/{userId}")
+	@GetMapping("/user")
 	@ResponseStatus(HttpStatus.OK)
-	public Response<List<Article>> getAllArticles(@PathVariable("userId") String userId) throws NotFoundException, ValidationException{
-		if(!validator.isIdValid(userId)) {
-			throw new ValidationException("Validation error");
-		}
-		Optional<User> user = userService.getUser(Long.valueOf(userId));
+	public Response<List<Article>> getAllUserArticles() throws NotFoundException{
+		Optional<User> user = userService.getUser(Long.valueOf(userService.getUserIdByNickname(userService.getNicknameOfCurrentUser())));
 		if(user.isEmpty()) {
 			throw new NotFoundException("User does not exist");
 		}
