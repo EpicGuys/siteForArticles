@@ -18,4 +18,8 @@ public class Validator {
 	public Boolean isIdValid(String id) {
 		return true;
 	}
+	
+	public Boolean isSubjectValid(String subject) {
+		return true;
+	}
 }

@@ -16,9 +16,20 @@ public class ArticleService {
 	@Autowired
 	private ArticleRepository articleRepository;
 	
+	public List<Article> findArticleByTitle(String titlePart) {
+		return articleRepository.findByTitleContaining(titlePart);
+	}
+	
 	public List<Article> getAllArticles(User user) {
 		Article article = new Article();
 		article.setUser(user);
+		Example<Article> articleExample = Example.of(article);
+		return articleRepository.findAll(articleExample);
+	}
+	
+	public List<Article> getArticlesBySubject(String subject) {
+		Article article = new Article();
+		article.setSubject(subject);
 		Example<Article> articleExample = Example.of(article);
 		return articleRepository.findAll(articleExample);
 	}

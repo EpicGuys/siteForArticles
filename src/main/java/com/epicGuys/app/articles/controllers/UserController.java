@@ -1,6 +1,5 @@
 package com.epicGuys.app.articles.controllers;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -34,7 +33,7 @@ public class UserController {
 	@Autowired
 	private Validator validator;
 	
-	@GetMapping("/")
+	@GetMapping("/all")
 	@ResponseStatus(HttpStatus.OK)
 	public Response<List<User>> getAllUsers() throws NotFoundException{
 		List<User> users = userService.getAllUsers();
@@ -71,7 +70,7 @@ public class UserController {
 		return new Response<User>(HttpStatus.CREATED, userService.saveUser(newUser));
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	@ResponseStatus(HttpStatus.OK)
 	public Response<User> deleteUser(@PathVariable("id") String id) throws NotFoundException, ValidationException{
 		if(!validator.isIdValid(id)) {
