@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang=" en">
+
+<head>
+	<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+	<title>Epic Articles</title>
+	<link rel="shortcut icon" href="images/icon.png">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;500;600;700&display=swap" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/main.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/1b21b58b73.js" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<div class="container mt-5">
+  		<div class="row justify-content-center">
+    		<div class="col-md-6">
+      			<div class="card">
+        			<div class="card-header">
+          				Login
+        			</div>
+        			<div class="card-body">
+						
+						<div th:if="${logout}" class="alert alert-info" role="alert">You've been logged out successfully</div>
+
+						<div th:if="${error}" class="alert alert-danger" role="alert">Invalid Username or Password</div>
+
+        				
+          				<form method="post">
+            				<div class="form-group">
+              					<label for="username">Username</label>
+              					<input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+            				</div>
+            				<div class="form-group">
+              					<label for="password">Password</label>
+              					<input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+            				</div>
+            				<button type="submit" class="btn btn-primary">Login</button>
+          				</form>
+        			</div>
+      			</div>
+    		</div>
+  		</div>
+	</div>
+
+	<script src="js/bootstrap.bundle.min.js"></script>
+	<script src="js/home.js"></script>
+</body>
+
+</html>
