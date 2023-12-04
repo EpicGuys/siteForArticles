@@ -6,6 +6,8 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +34,20 @@ public class UserController {
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private Validator validator;
+	
+//	@GetMapping("")
+//	@ResponseStatus(HttpStatus.OK)
+//	public Response<User> getCurrentUser() throws NotFoundException{
+//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//		Optional<User> optionalUser = userService.getUserByNickname(auth.getName());
+//		if(optionalUser.isEmpty()) {
+//			throw new NotFoundException("There is no authenticated user");
+//		}
+//		User user = new User();
+//		user.setNickname(optionalUser.get().getNickname());
+//		user.setId(optionalUser.get().getId());
+//		return new Response<User>(HttpStatus.OK, optionalUser.get());
+//	}
 	
 	@GetMapping("/all")
 	@ResponseStatus(HttpStatus.OK)
@@ -66,7 +82,7 @@ public class UserController {
 		newUser.setNickname(user.getNickname());
 		newUser.setPassword(passwordEncoder.encode(user.getPassword()));
 		newUser.setEnabled(true);
-		newUser.setRoles(Set.of(Role.ROLE_USER));
+		newUser.setRoles(Set.of(Role.ROLE_WRITER));
 		return new Response<User>(HttpStatus.CREATED, userService.saveUser(newUser));
 	}
 	
