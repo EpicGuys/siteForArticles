@@ -49,6 +49,7 @@ public class SecurityConfiguration {
 				.defaultSuccessUrl("/")
 				.failureUrl("/login?error");
 		});
+
 		return http.build();
 	}	
 }
