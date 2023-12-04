@@ -31,6 +31,9 @@ public class Article {
 	@Column(name = "title")
 	private String title;
 	
+	@Column(name = "subject")
+	private String subject;
+	
 	@Column(name = "text")
 	private StringBuffer text;
 	

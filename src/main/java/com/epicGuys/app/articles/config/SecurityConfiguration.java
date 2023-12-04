@@ -31,19 +31,31 @@ public class SecurityConfiguration {
 	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		http.cors((cors)->{
-			cors.disable();
+		http.cors((cors)->{cors
+			.disable();
 		});
-		http.csrf((crfs)->{
-			crfs.disable();
+		http.csrf((crfs)->{crfs
+			.disable();
 		});
-		http.authorizeHttpRequests((object) ->{
-			object.anyRequest().permitAll();
+		http.authorizeHttpRequests((authorize) -> {authorize
+				.requestMatchers("/epic-guys/users/**").hasRole("ADMIN")
+				.requestMatchers("/epic-guys/articles/writer/**").hasRole("WRITER")
+				.requestMatchers("/login").anonymous()
+				.requestMatchers("/login?logout").authenticated()
+				.requestMatchers("/**").permitAll();
 		});
+		http.formLogin((form)->{form
+				.loginPage("/login")
+				.defaultSuccessUrl("/")
+				.failureUrl("/login?error");
+		});
+<<<<<<< HEAD
 		http.formLogin(form -> form
 			.loginPage("/login")
 			.permitAll()
 		);
+=======
+>>>>>>> 1e6f7423c001ef1597f79e2c967d47dfd04e97fa
 		return http.build();
 	}	
 }

@@ -1,7 +1,6 @@
 package com.epicGuys.app.articles.controllers;
 
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -36,7 +35,7 @@ public class ArticleController {
 	@Autowired
 	private Validator validator;
 	
-	@PostMapping("/{userId}")
+	@PostMapping("/writer/add/{userId}")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Response<Article> addArticle(@PathVariable("userId") String userId, @RequestBody Article article) throws NotFoundException, ValidationException{
 		if(!validator.isIdValid(userId) || !validator.isArticleValid(article)) {
@@ -54,7 +53,7 @@ public class ArticleController {
 		return new Response<Article>(HttpStatus.CREATED, article);
 	}
 	
-	@GetMapping("/")
+	@GetMapping("/all")
 	@ResponseStatus(HttpStatus.OK)
 	public Response<List<Article>> getAllArticles() throws NotFoundException{
 		List<Article> articles = articleService.getAllArticles();
@@ -64,7 +63,34 @@ public class ArticleController {
 		return new Response<List<Article>>(HttpStatus.OK, articles);
 	}
 	
-	@GetMapping("/{userId}")
+	@GetMapping("/subject/{subject}")
+	@ResponseStatus(HttpStatus.OK)
+	public Response<List<Article>> getArticlesBySubject(@PathVariable("subject") String subject) throws NotFoundException, ValidationException{
+		if(!validator.isSubjectValid(subject)) {
+			throw new ValidationException("Validation error");
+		}
+		List<Article> articles = articleService.getArticlesBySubject(subject.toLowerCase());
+		if(articles.isEmpty()) {
+			throw new NotFoundException("Articles do not exist");
+		}
+		return new Response<List<Article>>(HttpStatus.OK, articles);
+	}
+	
+	@GetMapping("/title/{title}")
+	@ResponseStatus(HttpStatus.OK)
+	public Response<List<Article>> getArticlesByTitlePart(@PathVariable("title") String title) throws NotFoundException, ValidationException{
+		if(title.length() == 0) {
+			throw new ValidationException("Validation error");
+		}
+		List<Article> articles = articleService.findArticleByTitle(title);
+		if(articles.isEmpty()) {
+			throw new NotFoundException("Articles do not exist");
+		}
+		return new Response<List<Article>>(HttpStatus.OK, articles);
+	}
+	
+	
+	@GetMapping("/all/{userId}")
 	@ResponseStatus(HttpStatus.OK)
 	public Response<List<Article>> getAllArticles(@PathVariable("userId") String userId) throws NotFoundException, ValidationException{
 		if(!validator.isIdValid(userId)) {
@@ -79,7 +105,7 @@ public class ArticleController {
 		return new Response<List<Article>>(HttpStatus.OK, articles);
 	}
 
-	@DeleteMapping("/{articleId}")
+	@DeleteMapping("/writer/delete/{articleId}")
 	@ResponseStatus(HttpStatus.OK)
 	public Response<List<Article>> deleteArticle(@PathVariable("articleId") String articleId) throws NotFoundException, ValidationException{
 		if(!validator.isIdValid(articleId)) {
