@@ -30,17 +30,13 @@
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle mh-ftcolor-white" href="#" role="button" data-bs-toggle="dropdown"
 							aria-expanded="false">
-							View
+							Topics
 						</a>
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item mh-hover" href="#">Travel</a></li>
 							<li><a class="dropdown-item mh-hover" href="#">Sport</a></li>
 							<li><a class="dropdown-item mh-hover" href="#">IT</a></li>
 							<li><a class="dropdown-item mh-hover" href="#">Science</a></li>
-							<li>
-								<hr class="dropdown-divider">
-							</li>
-							<li><a class="dropdown-item mh-hover" href="#">All</a></li>
 						</ul>
 					</li>
 					<li class="nav-item dropdown">
@@ -49,9 +45,8 @@
 							Your content
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item mh-hover" href="#">Profile</a></li>
 							<li><a class="dropdown-item mh-hover" href="#">Write article</a></li>
-							<li><a class="dropdown-item mh-hover" href="#">View yours</a></li>
+							<li><a class="dropdown-item mh-hover" href="#">My articles</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -62,7 +57,22 @@
 			</div>
 		</div>
 	</nav>
+	
+	<div class="container">
+		<div class="row">
+			
+			<div class="col-md-8">
+   				<ul id="list-articles" class="list-group">
+    			</ul>
+    		</div>
 
+			<div class="col-md-4">
+    			<ul id="list-dates" class="list-group">
+    			</ul>
+    		</div>
+    		
+    	</div>
+  	</div>
 
 	<script src="js/bootstrap.bundle.min.js"></script>
 	<script src="js/home.js"></script>
