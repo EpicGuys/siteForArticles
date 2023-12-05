@@ -91,7 +91,7 @@ public class ArticleController {
 	}
 	
 	
-	@GetMapping("/user")
+	@GetMapping("/writer/view")
 	@ResponseStatus(HttpStatus.OK)
 	public Response<List<Article>> getAllUserArticles() throws NotFoundException{
 		Optional<User> user = userService.getUser(Long.valueOf(userService.getUserIdByNickname(userService.getNicknameOfCurrentUser())));
