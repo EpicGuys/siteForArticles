@@ -64,7 +64,6 @@ public class ArticleController {
 		return new Response<List<Article>>(HttpStatus.OK, articles);
 	}
 	
-//
 	@GetMapping("/search/{subject}/{title}")
 	@ResponseStatus(HttpStatus.OK)
 	public Response<List<Article>> getArticlesBySubjectAndTitle(@PathVariable("subject") String subject, 

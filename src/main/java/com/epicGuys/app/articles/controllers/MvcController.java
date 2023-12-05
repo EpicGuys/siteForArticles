@@ -47,9 +47,9 @@ public class MvcController {
 		return "deleteArticles";
 	}
 	
-	@RequestMapping("/epic-guys/articles/writer/delete/{articleId}")
-	public String deleleArticle(@PathVariable("articleId") String articleId, Model model) {
-		model.addAttribute("articleId");
+	@RequestMapping("/epic-guys/articles/writer/delete/article/{id}")
+	public String deleleArticle(@PathVariable String id, Model model) {
+		model.addAttribute("articleId", id);
 		return "delete";
 	}
 }

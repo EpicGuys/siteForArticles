@@ -29,7 +29,11 @@ $(document).delegate('#btnSearch', 'click', function(event){
     	dataType: 'json',
     	success: function(data) {
         	displayData(data);
-    	}
+    	},
+    	error: function() {
+			$('#list-articles').empty();
+   			$('#list-dates').empty();
+		}
 	});
 });
 
