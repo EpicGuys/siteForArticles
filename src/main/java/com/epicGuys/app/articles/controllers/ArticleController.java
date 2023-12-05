@@ -64,6 +64,21 @@ public class ArticleController {
 		return new Response<List<Article>>(HttpStatus.OK, articles);
 	}
 	
+//
+	@GetMapping("/search/{subject}/{title}")
+	@ResponseStatus(HttpStatus.OK)
+	public Response<List<Article>> getArticlesBySubjectAndTitle(@PathVariable("subject") String subject, 
+															@PathVariable("title") String title) throws NotFoundException, ValidationException{
+		if(!validator.isSubjectValid(subject)) {
+			throw new ValidationException("Validation error");
+		}
+		List<Article> articles = articleService.findArticleBySubjectAndTitle(subject.toLowerCase(), title.toLowerCase());
+		if(articles.isEmpty()) {
+			throw new NotFoundException("Articles do not exist");
+		}
+		return new Response<List<Article>>(HttpStatus.OK, articles);
+	}
+	
 	@GetMapping("/subject/{subject}")
 	@ResponseStatus(HttpStatus.OK)
 	public Response<List<Article>> getArticlesBySubject(@PathVariable("subject") String subject) throws NotFoundException, ValidationException{
