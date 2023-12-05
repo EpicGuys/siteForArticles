@@ -16,6 +16,10 @@ public class ArticleService {
 	@Autowired
 	private ArticleRepository articleRepository;
 	
+	public List<Article> findArticleBySubjectAndTitle(String subject, String title) {
+		return articleRepository.findBySubjectAndTitleContaining(subject, title);
+	}
+	
 	public List<Article> findArticleByTitle(String titlePart) {
 		return articleRepository.findByTitleContaining(titlePart);
 	}

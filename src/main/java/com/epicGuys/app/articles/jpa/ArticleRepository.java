@@ -9,4 +9,5 @@ import com.epicGuys.app.articles.entity.Article;
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
 	List<Article> findByTitleContaining(String part);
+	List<Article> findBySubjectAndTitleContaining(String subject, String part);
 }
