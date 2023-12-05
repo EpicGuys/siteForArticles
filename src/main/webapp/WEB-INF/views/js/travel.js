@@ -35,7 +35,7 @@ $(document).delegate('#btnSearch', 'click', function(event){
 
 $(document).ready(function() {
 	$.ajax({
-    	url: 'http://localhost:8080/epic-guys/articles/all',
+    	url: 'http://localhost:8080/epic-guys/articles/subject/travel',
     	method: 'GET',
     	dataType: 'json',
     	success: function(data) {
