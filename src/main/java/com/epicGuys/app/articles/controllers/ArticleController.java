@@ -105,7 +105,7 @@ public class ArticleController {
 
 	@DeleteMapping("/writer/delete/{articleId}")
 	@ResponseStatus(HttpStatus.OK)
-	public Response<List<Article>> deleteArticle(@PathVariable("articleId") String articleId) throws NotFoundException, ValidationException{
+	public Response<Article> deleteArticle(@PathVariable("articleId") String articleId) throws NotFoundException, ValidationException{
 		if(!validator.isIdValid(articleId)) {
 			throw new ValidationException("Id is not valid");
 		}
@@ -114,7 +114,7 @@ public class ArticleController {
 			throw new NotFoundException("Article does not exist");
 		}
 		articleService.deleteArticle(Long.valueOf(articleId));
-		return new Response<List<Article>>(HttpStatus.OK, null);
+		return new Response<Article>(HttpStatus.OK, article.get());
 	}
 }
 
