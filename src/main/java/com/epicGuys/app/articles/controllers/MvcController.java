@@ -1,7 +1,19 @@
 package com.epicGuys.app.articles.controllers;
 
+import java.util.Optional;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+import com.epicGuys.app.articles.dto.Response;
+import com.epicGuys.app.articles.entity.Article;
+import com.epicGuys.app.articles.exception.NotFoundException;
+import com.epicGuys.app.articles.exception.ValidationException;
 
 @Controller
 public class MvcController {
@@ -24,4 +36,20 @@ public class MvcController {
     public String getTravelPage() {
         return "travel";
     }
+	
+	@RequestMapping("/epic-guys/articles/writer/viewAll")
+    public String getWriterArticlesPage() {
+        return "userarticles";
+    }
+	
+	@RequestMapping("/epic-guys/articles/writer/delete")
+	public String deleleArticles() {
+		return "deleteArticles";
+	}
+	
+	@RequestMapping("/epic-guys/articles/writer/delete/{articleId}")
+	public String deleleArticle(@PathVariable("articleId") String articleId, Model model) {
+		model.addAttribute("articleId");
+		return "delete";
+	}
 }
