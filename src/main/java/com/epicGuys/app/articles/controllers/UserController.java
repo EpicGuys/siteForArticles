@@ -35,20 +35,6 @@ public class UserController {
 	@Autowired
 	private Validator validator;
 	
-//	@GetMapping("")
-//	@ResponseStatus(HttpStatus.OK)
-//	public Response<User> getCurrentUser() throws NotFoundException{
-//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//		Optional<User> optionalUser = userService.getUserByNickname(auth.getName());
-//		if(optionalUser.isEmpty()) {
-//			throw new NotFoundException("There is no authenticated user");
-//		}
-//		User user = new User();
-//		user.setNickname(optionalUser.get().getNickname());
-//		user.setId(optionalUser.get().getId());
-//		return new Response<User>(HttpStatus.OK, optionalUser.get());
-//	}
-	
 	@GetMapping("/all")
 	@ResponseStatus(HttpStatus.OK)
 	public Response<List<User>> getAllUsers() throws NotFoundException{

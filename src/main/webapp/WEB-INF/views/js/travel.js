@@ -5,7 +5,7 @@ function displayData(response) {
     response.data.forEach(function(object) {
         $('#list-articles').append('<hr class="dropdown-divider">' 
         	+ '<li class="list-group-item text-center bg-info">' 
-        	+ '<a class="text-decoration-none text-light" href="http://localhost:8080/epic-guys/articles/' + object.id + '">' 
+        	+ '<a class="text-decoration-none text-light" href="http://localhost:8080/epic-guys/articles/view/article/' + object.id + '">' 
         	+ object.title + '</a>'
         	+ '</li>' 
         	+ '<hr class="dropdown-divider">');
@@ -24,12 +24,16 @@ $(document).delegate('#btnSearch', 'click', function(event){
 	var input = document.getElementById("labelSearch").value;
 	
 	$.ajax({
-		url: 'http://localhost:8080/epic-guys/articles/title/' + input,
+		url: 'http://localhost:8080/epic-guys/articles/search/travel/' + input,
     	method: 'GET',
     	dataType: 'json',
     	success: function(data) {
         	displayData(data);
-    	}
+    	},
+    	error: function() {
+			$('#list-articles').empty();
+   			$('#list-dates').empty();
+		}
 	});
 });
 
