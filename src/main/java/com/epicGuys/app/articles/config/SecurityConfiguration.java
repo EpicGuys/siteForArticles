@@ -38,17 +38,10 @@ public class SecurityConfiguration {
 			.disable();
 		});
 		http.authorizeHttpRequests((authorize) -> {authorize
-<<<<<<< HEAD
-//				.requestMatchers("/epic-guys/users/**").hasRole("ADMIN")
-//				.requestMatchers("/epic-guys/articles/writer/**").hasRole("WRITER")
-//				.requestMatchers("/login").anonymous()
-//				.requestMatchers("/login?logout").authenticated()
-=======
 				.requestMatchers("/epic-guys/users/**").hasRole("ADMIN")
 				.requestMatchers("/epic-guys/articles/writer/**").hasRole("WRITER")
 				//.requestMatchers("/login?logout").authenticated()
 				//.requestMatchers("/login").anonymous()
->>>>>>> af9bd7417618341fa7d48a1edd5a369832981a10
 				.requestMatchers("/**").permitAll();
 		});
 		http.formLogin((form)->{form
