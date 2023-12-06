@@ -40,8 +40,8 @@ public class SecurityConfiguration {
 		http.authorizeHttpRequests((authorize) -> {authorize
 				.requestMatchers("/epic-guys/users/**").hasRole("ADMIN")
 				.requestMatchers("/epic-guys/articles/writer/**").hasRole("WRITER")
-				.requestMatchers("/login").anonymous()
-				.requestMatchers("/login?logout").authenticated()
+				//.requestMatchers("/login?logout").authenticated()
+				//.requestMatchers("/login").anonymous()
 				.requestMatchers("/**").permitAll();
 		});
 		http.formLogin((form)->{form

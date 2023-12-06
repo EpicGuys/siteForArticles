@@ -52,4 +52,15 @@ public class MvcController {
 		model.addAttribute("articleId", id);
 		return "delete";
 	}
+	
+	@RequestMapping("/epic-guys/articles/view/article/{id}")
+	public String viewArticle(@PathVariable String id, Model model) {
+		model.addAttribute("articleId", id);
+		return "view";
+	}
+	
+	@RequestMapping("/epic-guys/articles/writer/write")
+	public String writeArticle() {
+		return "write";
+	}
 }

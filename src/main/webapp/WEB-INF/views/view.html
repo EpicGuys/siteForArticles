@@ -29,13 +29,22 @@
 	
 	<p id="articleId" hidden><span th:text="${id}"/></p>
 	
-	<div class="d-grid gap-2">
-  		<button id="btnDelete" class="btn btn-danger" type="button">Delete</button>
-  		<button id="btnCancel" class="btn btn-primary" type="button">Cancel</button>
+	<div class="card text-center">
+  		<div id="subject" class="card-header"></div>
+  		
+  		<div class="card-body">
+    		<h5 id="title" class="card-title"></h5>
+    		<p id="text" class="card-text"></p>
+  		</div>
+  		
+  		<div id="date" class="card-footer text-muted"></div>
+  		
+  		<button id="btnBack" type="button" class="btn btn-primary">Back</button>
+  		
 	</div>
-
+	
 	<script src="/js/bootstrap.bundle.min.js"></script>
-	<script src="/js/delete.js"></script>
+	<script src="/js/view.js"></script>
 </body>
 
 </html>

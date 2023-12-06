@@ -75,6 +75,7 @@ public class ArticleController {
 		if(articles.isEmpty()) {
 			throw new NotFoundException("Articles do not exist");
 		}
+		Collections.reverse(articles);
 		return new Response<List<Article>>(HttpStatus.OK, articles);
 	}
 	
@@ -88,6 +89,7 @@ public class ArticleController {
 		if(articles.isEmpty()) {
 			throw new NotFoundException("Articles do not exist");
 		}
+		Collections.reverse(articles);
 		return new Response<List<Article>>(HttpStatus.OK, articles);
 	}
 	
@@ -101,6 +103,7 @@ public class ArticleController {
 		if(articles.isEmpty()) {
 			throw new NotFoundException("Articles do not exist");
 		}
+		Collections.reverse(articles);
 		return new Response<List<Article>>(HttpStatus.OK, articles);
 	}
 	

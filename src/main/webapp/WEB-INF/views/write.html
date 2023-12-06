@@ -27,15 +27,40 @@
 
 <body>
 	
-	<p id="articleId" hidden><span th:text="${id}"/></p>
-	
-	<div class="d-grid gap-2">
-  		<button id="btnDelete" class="btn btn-danger" type="button">Delete</button>
-  		<button id="btnCancel" class="btn btn-primary" type="button">Cancel</button>
-	</div>
+	<form>
+  		<div class="input-group">
+			 <div class="input-group-prepend">
+    			<label class="input-group-text" for="title">Title</label>
+  			</div>
+    		<input type="title" class="form-control" id="title" placeholder="title...">
+  		</div>
+  		
+  		<div class="input-group">
+  			<div class="input-group-prepend">
+    			<label class="input-group-text" for="inputGroupSelect">Subjects</label>
+  			</div>
+  			<select class="custom-select" id="inputGroupSelect">
+    			<option value="It" selected>IT</option>
+    			<option value="Sport">Sport</option>
+    			<option value="Science">Science</option>
+    			<option value="Travel">Travel</option>
+  			</select>
+		</div>
+		
+		<div class="input-group input-group-lg">
+  			<div class="input-group-prepend">
+    			<label class="input-group-text" for="text">Text</label>
+  			</div>
+  			<textarea id="text" class="form-control" aria-label="Text"></textarea>
+		</div>
+  		
+  		<button id="btnWrite" type="button" class="btn btn-success">Post</button>
 
+	</form>
+	
+	
 	<script src="/js/bootstrap.bundle.min.js"></script>
-	<script src="/js/delete.js"></script>
+	<script src="/js/write.js"></script>
 </body>
 
 </html>

@@ -4,15 +4,9 @@ $(document).delegate('#btnDelete', 'click', function(event){
 	$.ajax({
 		url: 'http://localhost:8080/epic-guys/articles/writer/delete/' + articleId,
     	method: 'DELETE',
-    	dataType: 'json',
-    	success: function() {
-			alert('Article was deleted');
-		},
-		error: function() {
-			alert('Have problems');
-		}
+    	dataType: 'json'
 	});
-	
+	alert('Article was deleted');
 	window.location.href = 'http://localhost:8080/epic-guys/articles/writer/delete';
 });
 

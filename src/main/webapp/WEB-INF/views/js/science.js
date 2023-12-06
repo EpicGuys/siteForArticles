@@ -5,7 +5,7 @@ function displayData(response) {
     response.data.forEach(function(object) {
         $('#list-articles').append('<hr class="dropdown-divider">' 
         	+ '<li class="list-group-item text-center bg-info">' 
-        	+ '<a class="text-decoration-none text-light" href="http://localhost:8080/epic-guys/articles/' + object.id + '">' 
+        	+ '<a class="text-decoration-none text-light" href="http://localhost:8080/epic-guys/articles/view/article/' + object.id + '">' 
         	+ object.title + '</a>'
         	+ '</li>' 
         	+ '<hr class="dropdown-divider">');
