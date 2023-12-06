@@ -16,6 +16,21 @@ public class ArticleService {
 	@Autowired
 	private ArticleRepository articleRepository;
 	
+	public Optional<Article> editArticle(Long id, Article article) {
+		Optional<Article> optionalArticle = articleRepository.findById(id);
+		if(article.getSubject() != null) {
+			optionalArticle.get().setSubject(article.getSubject());
+		}
+		if(article.getTitle() != null) {
+			optionalArticle.get().setTitle(article.getTitle());
+		}
+		if(article.getText() != null) {
+			optionalArticle.get().setText(article.getText());
+		}
+		articleRepository.save(optionalArticle.get());
+		return optionalArticle;
+	}
+	
 	public List<Article> findArticleBySubjectAndTitle(String subject, String title) {
 		return articleRepository.findBySubjectAndTitleContaining(subject, title);
 	}

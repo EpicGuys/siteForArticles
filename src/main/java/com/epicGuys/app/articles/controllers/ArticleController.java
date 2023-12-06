@@ -144,6 +144,20 @@ public class ArticleController {
 		}
 		return new Response<Article>(HttpStatus.OK, article.get());
 	}
+	
+	@PostMapping("/edit/{articleId}")
+	@ResponseStatus(HttpStatus.OK)
+	public Response<Article> editArticle(@PathVariable("articleId") String articleId, @RequestBody Article article) throws NotFoundException, ValidationException{
+		if(!validator.isIdValid(articleId)) {
+			throw new ValidationException("Id is not valid");
+		}
+		Optional<Article> optionalArticle = articleService.getArticle(Long.valueOf(articleId));
+		if(optionalArticle.isEmpty()) {
+			throw new NotFoundException("Article does not exist");
+		}
+		optionalArticle = articleService.editArticle(Long.valueOf(articleId), article);
+		return new Response<Article>(HttpStatus.OK, optionalArticle.get());
+	}
 }
 
 
