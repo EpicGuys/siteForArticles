@@ -131,6 +131,19 @@ public class ArticleController {
 		articleService.deleteArticle(Long.valueOf(articleId));
 		return new Response<Article>(HttpStatus.OK, article.get());
 	}
+	
+	@GetMapping("/{articleId}")
+	@ResponseStatus(HttpStatus.OK)
+	public Response<Article> getArticleById(@PathVariable("articleId") String articleId) throws NotFoundException, ValidationException{
+		if(!validator.isIdValid(articleId)) {
+			throw new ValidationException("Id is not valid");
+		}
+		Optional<Article> article = articleService.getArticle(Long.valueOf(articleId));
+		if(article.isEmpty()) {
+			throw new NotFoundException("Article does not exist");
+		}
+		return new Response<Article>(HttpStatus.OK, article.get());
+	}
 }
 
 
