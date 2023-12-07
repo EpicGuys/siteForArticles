@@ -13,35 +13,34 @@
 </head>
 
 <body>
-	<div class="container mt-5">
+  	
+  	<div class="container mt-5">
   		<div class="row justify-content-center">
     		<div class="col-md-6">
       			<div class="card">
         			<div class="card-header">
-          				Login
+          				Registration
         			</div>
         			<div class="card-body">
-						
-						<div th:if="${logout}" class="alert alert-info" role="alert">You've been logged out successfully</div>
-
-						<div th:if="${error}" class="alert alert-danger" role="alert">Invalid Username or Password</div>
 	
-          				<form method="post">
+          				<form th:method="POST" th:action="@{/registration}" th:object="${user}" >
             				<div class="form-group">
-              					<label for="username">Username</label>
-              					<input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+              					<label for="nickname">Username</label>
+              					<input type="text" class="form-control" id="nickname" name="nickname" placeholder="Enter username">
             				</div>
             				<div class="form-group">
               					<label for="password">Password</label>
-              					<input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
+              					<input type="password"  class="form-control" id="password" name="password" placeholder="Enter password">
             				</div>
-            				<button type="submit" class="btn btn-primary">Login</button>
+            				<button type="submit" class="btn btn-primary">Register</button>
           				</form>
+          				
         			</div>
       			</div>
     		</div>
   		</div>
 	</div>
+
 
 	<script src="js/bootstrap.bundle.min.js"></script>
 </body>
