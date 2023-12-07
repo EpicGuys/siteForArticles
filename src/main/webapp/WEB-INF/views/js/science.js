@@ -31,18 +31,33 @@ $(document).delegate('#btnSearch', 'click', function(event){
 	event.preventDefault();
 	var input = document.getElementById("labelSearch").value;
 	
-	$.ajax({
-		url: 'http://localhost:8080/epic-guys/articles/search/science/' + input,
-    	method: 'GET',
-    	dataType: 'json',
-    	success: function(data) {
-        	displayData(data);
-    	},
-    	error: function() {
-			$('#list-articles').empty();
-   			$('#list-dates').empty();
-		}
-	});
+	if(input != '') {
+		$.ajax({
+			url: 'http://localhost:8080/epic-guys/articles/search/science/' + input,
+    		method: 'GET',
+    		dataType: 'json',
+    		success: function(data) {
+        		displayData(data);
+    		},
+    		error: function() {
+				$('#list-articles').empty();
+   				$('#list-dates').empty();
+			}
+		});
+	} else {
+		$.ajax({
+			url: 'http://localhost:8080/epic-guys/articles/subject/science',
+    		method: 'GET',
+    		dataType: 'json',
+    		success: function(data) {
+        		displayData(data);
+    		},
+    		error: function() {
+				$('#list-articles').empty();
+   				$('#list-dates').empty();
+			}
+		});
+	}
 });
 
 $(document).ready(function() {

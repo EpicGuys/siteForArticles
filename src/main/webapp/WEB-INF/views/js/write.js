@@ -26,20 +26,24 @@ $(document).delegate('#btnWrite', 'click', function(event){
     
     var articleDTO = new ArticleDTO(titleBuff, subjectBuff, textBuff);
 	
-	$.ajax({
-		url: 'http://localhost:8080/epic-guys/articles/writer/add',
-    	method: 'POST',
-    	dataType: 'json',
-    	data: JSON.stringify(articleDTO),
-    	success: function() {
-			alert('Article was added');
-		},
-		error: function() {
-			alert('Article wasnt added');
-		}
-	});
+	if(titleBuff != '' && textBuff != ''){
+		$.ajax({
+			url: 'http://localhost:8080/epic-guys/articles/writer/add',
+    		method: 'POST',
+    		dataType: 'json',
+    		data: JSON.stringify(articleDTO),
+    		success: function() {
+				alert('Article was added');
+			},
+			error: function() {
+				alert('Article wasnt added');
+			}
+		});
 	
-	window.setTimeout(function(){
-    	window.location.href = 'http://localhost:8080/epic-guys/articles/writer/viewAll';
-    }, 1000);
+		window.setTimeout(function(){
+    		window.location.href = 'http://localhost:8080/epic-guys/articles/writer/viewAll';
+    	}, 1000);
+	} else {
+		alert('Fill in all the fields');
+	}
 });
