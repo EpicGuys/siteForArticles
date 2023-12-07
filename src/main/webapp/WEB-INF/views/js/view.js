@@ -1,8 +1,19 @@
+$.ajaxSetup({
+	cache: false,
+	headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json',
+	}
+});
+
 function displayData(response) {
-    $('#title').val(response.data.title);
-    $('#subject').val(response.data.suject);
-    $('#text').val(response.data.text);
-    $('#date').val(response.data.date);
+	$('#form').append('<div class="card-header">' + response.data.subject + '</div>'
+		+ '<div class="card-body">'
+		+ '<h5 class="card-title">' + response.data.title + '</h5>'
+		+ '<p class="card-text">' + response.data.text + '</p>'
+		+ '</div>'
+		+ '<div class="card-footer text-muted">' + response.data.date + '</div>'
+		+ '<button id="btnBack" type="button" class="btn btn-primary">Back</button>');
 }
 
 $(document).delegate('#btnBack', 'click', function(event){
@@ -11,9 +22,9 @@ $(document).delegate('#btnBack', 'click', function(event){
 });
 
 $(document).ready(function() {
-	var id = $('#articleId');
+	var id = $('#articleId').text();
 	$.ajax({
-    	url: 'http://localhost:8080/epic-guys/articles/subject/sport' + id,
+    	url: 'http://localhost:8080/epic-guys/articles/' + id,
     	method: 'GET',
     	dataType: 'json',
     	success: function(data) {

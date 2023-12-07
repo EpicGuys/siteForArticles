@@ -1,3 +1,11 @@
+$.ajaxSetup({
+	cache: false,
+	headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json',
+	}
+});
+
 function displayData(response) {
     $('#list-articles').empty();
     $('#list-dates').empty();

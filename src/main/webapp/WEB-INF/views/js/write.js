@@ -12,6 +12,11 @@ function ArticleDTO(title, subject, text) {
             this.text = text;
 }
 
+$(document).delegate('#btnBack', 'click', function(event){
+	event.preventDefault();
+	window.history.back();
+});
+
 $(document).delegate('#btnWrite', 'click', function(event){
 	event.preventDefault();
 	

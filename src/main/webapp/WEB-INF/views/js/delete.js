@@ -1,3 +1,11 @@
+$.ajaxSetup({
+	cache: false,
+	headers: {
+		'Accept': 'application/json',
+		'Content-Type': 'application/json',
+	}
+});
+
 $(document).delegate('#btnDelete', 'click', function(event){
 	event.preventDefault();
 	var articleId = $('#articleId').text();
